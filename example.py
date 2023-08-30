@@ -1,12 +1,12 @@
 from flask import Flask, request
 
-a = Flask(__name__)
+A = Flask(__name__)
 
-@a.route('/')
+@A.route('/')
 def hW():
     return 'This is the main page. <a href="http://localhost:5000/F1">Click here to see the form.</a>'
 
-@a.route('/F1')
+@A.route('/F1')
 def F1():
     return """ <form action="http://localhost:5000/rF1" method='GET'>
   <input type="checkbox" name="v1" value="Bike"> I have a bike<br>
@@ -15,7 +15,7 @@ def F1():
   <input type="submit" value="Submit">
 </form>"""
 
-@a.route('/rF1',methods=["GET"])
+@A.route('/rF1',methods=["GET"])
 def rF1():
     if request.method == "GET":
         print(request.args)
@@ -25,14 +25,14 @@ def rF1():
         return Rs
     return "Nothing was selected this time!"
 
-@a.route('/F2')
+@A.route('/F2')
 def F2():
     return """<form action="http://localhost:5000/lR" method='GET'>
     <input type="text" name="p"><br>
     <input type="submit" value="Submit">
     """
 
-@a.route('/lR',methods=["GET"])
+@A.route('/lR',methods=["GET"])
 def lR():
     if request.method == "GET":
         P = request.args.get('p','')
@@ -44,4 +44,4 @@ def lR():
     return "Nothing was submitted yet... <a href='http://localhost:5000/F2'>Go submit something</a>"
 
 if __name__ == "__main__":
-    a.run(use_reloader=True, debug=True)
+    A.run(use_reloader=True, debug=True)
