@@ -4,10 +4,10 @@ a = Flask(__name__)
 
 @a.route('/')
 def hW():
-    return 'This is the main page. <a href="http://localhost:5000/f1">Click here to see the form.</a>'
+    return 'This is the main page. <a href="http://localhost:5000/F1">Click here to see the form.</a>'
 
-@a.route('/f1')
-def f1():
+@a.route('/F1')
+def F1():
     return """ <form action="http://localhost:5000/rF1" method='GET'>
   <input type="checkbox" name="v1" value="Bike"> I have a bike<br>
   <input type="checkbox" name="v2" value="Car"> I have a car<br>
@@ -25,8 +25,8 @@ def rF1():
         return rs
     return "Nothing was selected this time!"
 
-@a.route('/f2')
-def f2():
+@a.route('/F2')
+def F2():
     return """<form action="http://localhost:5000/lR" method='GET'>
     <input type="text" name="p"><br>
     <input type="submit" value="Submit">
@@ -41,7 +41,7 @@ def lR():
             if ch == "e":
                 tn += 1
         return "There were {} occurrences of the letter e in the entered phrase".format(tn)
-    return "Nothing was submitted yet... <a href='http://localhost:5000/f2'>Go submit something</a>"
+    return "Nothing was submitted yet... <a href='http://localhost:5000/F2'>Go submit something</a>"
 
 if __name__ == "__main__":
     a.run(use_reloader=True, debug=True)
