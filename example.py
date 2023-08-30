@@ -21,8 +21,8 @@ def rF1():
         print(request.args)
         rs = ""
         for k in request.args:
-            rs += "{} - {}<br><br>".format(k, request.args.get(k,""))
-        return rs
+            Rs += "{} - {}<br><br>".format(k, request.args.get(k,""))
+        return Rs
     return "Nothing was selected this time!"
 
 @a.route('/F2')
@@ -35,11 +35,11 @@ def F2():
 @a.route('/lR',methods=["GET"])
 def lR():
     if request.method == "GET":
-        p = request.args.get('p','')
-        tn = 0
+        P = request.args.get('p','')
+        Tn = 0
         for ch in p:
             if ch == "e":
-                tn += 1
+                Tn += 1
         return "There were {} occurrences of the letter e in the entered phrase".format(tn)
     return "Nothing was submitted yet... <a href='http://localhost:5000/F2'>Go submit something</a>"
 
